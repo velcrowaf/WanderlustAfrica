@@ -34,7 +34,10 @@ export function Impact() {
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+        <div
+          className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8"
+          style={{ paddingBottom: '260px' }}
+        >
           <h1 className="text-4xl font-bold text-white mb-4">Making an Impact</h1>
           <p className="text-xl text-white max-w-2xl">
             Our journey is about more than travel—it's about creating lasting positive change in the communities we visit.
