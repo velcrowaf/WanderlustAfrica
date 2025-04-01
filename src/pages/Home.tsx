@@ -1,4 +1,3 @@
-import React from 'react';
 import { Heart, GraduationCap, Globe2, BookOpen, HandHeart } from 'lucide-react';
 
 export function Home() {
