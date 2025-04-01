@@ -1,5 +1,4 @@
-import React from 'react';
-import { Compass, Map, Sun, Mountain, Palmtree, Tent } from 'lucide-react';
+import { Compass, Map, Sun, Tent } from 'lucide-react';
 
 export function Destinations() {
   const destinations = [
@@ -35,7 +34,7 @@ export function Destinations() {
       <div className="relative">
         <div className="absolute inset-0">
           <img
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[300px] sm:h-[500px] object-cover"
             src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80"
             alt="African Safari"
           />
@@ -49,12 +48,12 @@ export function Destinations() {
         </div>
       </div>
 
-      {/* Features */}
+      {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature) => (
             <div key={feature.title} className="bg-orange-50 p-6 rounded-lg">
-              <feature.icon className="h-8 w-8 text-orange-500 mb-4" />
+              <feature.icon className="h-8 w-8 text-orange-500 mb-4" aria-label={`${feature.title} Icon`} />
               <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
             </div>
@@ -71,7 +70,7 @@ export function Destinations() {
               <div key={destination.country} className="bg-white rounded-lg overflow-hidden shadow-lg">
                 <img
                   src={destination.image}
-                  alt={destination.country}
+                  alt={`Image of ${destination.country}`}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
@@ -80,7 +79,7 @@ export function Destinations() {
                   <ul className="space-y-2">
                     {destination.activities.map((activity) => (
                       <li key={activity} className="flex items-center text-sm text-gray-600">
-                        <Tent className="h-4 w-4 text-orange-500 mr-2" />
+                        <Tent className="h-4 w-4 text-orange-500 mr-2" aria-label="Activity Icon" />
                         {activity}
                       </li>
                     ))}
@@ -89,17 +88,6 @@ export function Destinations() {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="bg-orange-500 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your African Adventure?</h2>
-          <p className="text-xl mb-8">Let us help you plan the perfect family journey.</p>
-          <button className="bg-white text-orange-500 px-8 py-3 rounded-md hover:bg-gray-100 transition">
-            Plan Your Trip
-          </button>
         </div>
       </div>
     </div>
