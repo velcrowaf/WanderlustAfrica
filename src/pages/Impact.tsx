@@ -1,4 +1,3 @@
-import React from 'react';
 import { Heart, HandHeart, School, Stethoscope, Users, Trophy } from 'lucide-react';
 
 export function Impact() {
@@ -29,13 +28,16 @@ export function Impact() {
       <div className="relative">
         <div className="absolute inset-0">
           <img
-            className="w-full h-[500px] object-cover"
+            className="w-full h-[300px] sm:h-[500px] object-cover"
             src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80"
             alt="Impact in Africa"
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
-        <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+        <div
+          className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8"
+          style={{ paddingBottom: '260px' }}
+        >
           <h1 className="text-4xl font-bold text-white mb-4">Making an Impact</h1>
           <p className="text-xl text-white max-w-2xl">
             Our journey is about more than travel—it's about creating lasting positive change in the communities we visit.
@@ -48,21 +50,21 @@ export function Impact() {
         <h2 className="text-3xl font-bold mb-12">Our Focus Areas</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-orange-50 p-8 rounded-lg">
-            <School className="h-12 w-12 text-orange-500 mb-4" />
+            <School className="h-12 w-12 text-orange-500 mb-4" aria-label="Education Icon" />
             <h3 className="text-xl font-bold mb-2">Education</h3>
             <p className="text-gray-600">
               Supporting schools and educational programs across Africa to improve access to quality education.
             </p>
           </div>
           <div className="bg-orange-50 p-8 rounded-lg">
-            <Stethoscope className="h-12 w-12 text-orange-500 mb-4" />
+            <Stethoscope className="h-12 w-12 text-orange-500 mb-4" aria-label="Healthcare Icon" />
             <h3 className="text-xl font-bold mb-2">Healthcare</h3>
             <p className="text-gray-600">
               Working with medical facilities and organizations to enhance healthcare access and quality.
             </p>
           </div>
           <div className="bg-orange-50 p-8 rounded-lg">
-            <Users className="h-12 w-12 text-orange-500 mb-4" />
+            <Users className="h-12 w-12 text-orange-500 mb-4" aria-label="Community Development Icon" />
             <h3 className="text-xl font-bold mb-2">Community Development</h3>
             <p className="text-gray-600">
               Empowering local communities through sustainable development initiatives.

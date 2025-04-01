@@ -5,12 +5,12 @@ export function About() {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <div className="relative">
+      <section className="relative">
         <div className="absolute inset-0">
           <img
-            className="w-full h-[400px] object-cover"
+            className="w-full h-[300px] sm:h-[400px] object-cover"
             src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&q=80"
-            alt="Family in Africa"
+            alt="A family enjoying their time in Africa"
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
@@ -20,12 +20,12 @@ export function About() {
             A family of six on a mission to explore Africa while making a lasting impact through education and community development.
           </p>
         </div>
-      </div>
+      </section>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+          <article>
             <h2 className="text-3xl font-bold mb-6">Our Story</h2>
             <p className="text-gray-600 mb-4">
               We're a family that believes in the power of experiential learning and meaningful impact. Our journey across Africa combines our passion for travel with our commitment to education and community development.
@@ -33,26 +33,26 @@ export function About() {
             <p className="text-gray-600">
               Through our adventures, we're showing that family travel in Africa can be both enriching and impactful, creating lasting change in the communities we visit.
             </p>
-          </div>
+          </article>
           <div className="grid grid-cols-2 gap-4">
             <div className="bg-orange-50 p-6 rounded-lg">
-              <Users className="h-8 w-8 text-orange-500 mb-2" />
+              <Users className="h-8 w-8 text-orange-500 mb-2" aria-label="Family First Icon" />
               <h3 className="font-bold mb-1">Family First</h3>
               <p className="text-sm text-gray-600">Growing together through travel and learning</p>
             </div>
             <div className="bg-orange-50 p-6 rounded-lg">
-              <Heart className="h-8 w-8 text-orange-500 mb-2" />
+              <Heart className="h-8 w-8 text-orange-500 mb-2" aria-label="Community Impact Icon" />
               <h3 className="font-bold mb-1">Community Impact</h3>
               <p className="text-sm text-gray-600">Making a difference in lives across Africa</p>
             </div>
             <div className="bg-orange-50 p-6 rounded-lg">
-              <Globe className="h-8 w-8 text-orange-500 mb-2" />
+              <Globe className="h-8 w-8 text-orange-500 mb-2" aria-label="Global Education Icon" />
               <h3 className="font-bold mb-1">Global Education</h3>
               <p className="text-sm text-gray-600">Learning beyond traditional boundaries</p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
