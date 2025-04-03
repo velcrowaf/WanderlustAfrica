@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Twitter, TikTok } from 'lucide-react'; // Import social media icons
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -49,7 +49,42 @@ export function Contact() {
                 <span>Currently traveling across Africa</span>
               </div>
             </address>
+
+            {/* Social Media Links */}
+            <div className="mt-8">
+              <h2 className="text-lg font-bold mb-4">Follow Us</h2>
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.instagram.com/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="text-orange-500 hover:text-orange-600"
+                >
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TikTok"
+                  className="text-orange-500 hover:text-orange-600"
+                >
+                  <TikTok className="h-6 w-6" />
+                </a>
+                <a
+                  href="https://twitter.com/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X (formerly Twitter)"
+                  className="text-orange-500 hover:text-orange-600"
+                >
+                  <Twitter className="h-6 w-6" />
+                </a>
+              </div>
+            </div>
           </div>
+
           <div>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
