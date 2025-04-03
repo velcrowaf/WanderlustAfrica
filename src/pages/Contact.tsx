@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Instagram, Twitter, TikTok } from 'lucide-react'; // Import social media icons
+import { Mail, Phone, MapPin, Instagram, Twitter } from 'lucide-react'; // Import social media icons
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -63,15 +63,7 @@ export function Contact() {
                 >
                   <Instagram className="h-6 w-6" />
                 </a>
-                <a
-                  href="https://www.tiktok.com/@yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="TikTok"
-                  className="text-orange-500 hover:text-orange-600"
-                >
-                  <TikTok className="h-6 w-6" />
-                </a>
+                {/* TikTok icon removed as it is not available in lucide-react */}
                 <a
                   href="https://twitter.com/yourprofile"
                   target="_blank"
