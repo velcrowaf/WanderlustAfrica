@@ -1,10 +1,40 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Instagram, Twitter } from 'lucide-react'; // Import social media icons
 import { SiTiktok } from 'react-icons/si';
+import { motion } from 'framer-motion';
+import { Clock, Send } from 'lucide-react';
+import { SocialLinks } from '../components/SocialLinks';
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({ name: '', email: '', message: '' });
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: "Email",
+      details: "hello@wanderlustafrica.com",
+      link: "mailto:hello@wanderlustafrica.com"
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      details: "+1 (555) 123-4567",
+      link: "tel:+15551234567"
+    },
+    {
+      icon: MapPin,
+      title: "Location",
+      details: "Currently: Namibia",
+      link: null
+    },
+    {
+      icon: Clock,
+      title: "Response Time",
+      details: "Within 24 hours",
+      link: null
+    }
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -29,123 +59,190 @@ export function Contact() {
 
   return (
     <div className="pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <h1 className="text-4xl font-bold mb-6">Get In Touch</h1>
-            <p className="text-gray-600 mb-8">
-              Whether you're interested in travel consultations, speaking engagements, or partnership opportunities, we'd love to hear from you.
-            </p>
-            <address className="space-y-4 not-italic">
-              <div className="flex items-center">
-                <Mail className="h-6 w-6 text-orange-500 mr-3" aria-label="Email Icon" />
-                <span>hello@wanderlustafricanfamily.com</span>
-              </div>
-              <div className="flex items-center">
-                <Phone className="h-6 w-6 text-orange-500 mr-3" aria-label="Phone Icon" />
-                <span>+1 (234) 567-8900</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="h-6 w-6 text-orange-500 mr-3" aria-label="Location Icon" />
-                <span>Currently traveling across Africa</span>
-              </div>
-            </address>
-
-            {/* Social Media Links */}
-            <div className="mt-8">
-              <h2 className="text-lg font-bold mb-4">Follow Us</h2>
-              <div className="flex space-x-4">
-                <a
-                  href="https://www.instagram.com/yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="text-orange-500 hover:text-orange-600"
-                >
-                  <Instagram className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://www.tiktok.com/@yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="TikTok"
-                  className="text-orange-500 hover:text-orange-600"
-                >
-                  <SiTiktok className="h-6 w-6" />
-                </a>
-                <a
-                  href="https://twitter.com/yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="X (formerly Twitter)"
-                  className="text-orange-500 hover:text-orange-600"
-                >
-                  <Twitter className="h-6 w-6" />
-                </a>
-              </div>
-            </div>
+      {/* Hero Section */}
+      <section className="relative h-[600px]">
+        <div className="absolute inset-0">
+          <img
+            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80"
+            alt="Contact Us"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
+        </div>
+        <div className="relative h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Get in Touch</h1>
+              <p className="text-xl text-gray-200 max-w-2xl">
+                Have questions about our journey or want to collaborate? We'd love to hear from you.
+              </p>
+            </motion.div>
           </div>
+        </div>
+      </section>
 
-          <div>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+      {/* Contact Information */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 ${
-                    errors.name ? 'border-red-500' : ''
-                  }`}
-                  aria-describedby="name-error"
+                  name="name"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="Your name"
                 />
-                {errors.name && <p id="name-error" className="text-sm text-red-500">{errors.name}</p>}
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 ${
-                    errors.email ? 'border-red-500' : ''
-                  }`}
-                  aria-describedby="email-error"
+                  name="email"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="your@email.com"
                 />
-                {errors.email && <p id="email-error" className="text-sm text-red-500">{errors.email}</p>}
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="What's this about?"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Message
                 </label>
                 <textarea
                   id="message"
+                  name="message"
+                  required
                   rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 ${
-                    errors.message ? 'border-red-500' : ''
-                  }`}
-                  aria-describedby="message-error"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  placeholder="Your message..."
                 ></textarea>
-                {errors.message && <p id="message-error" className="text-sm text-red-500">{errors.message}</p>}
               </div>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 type="submit"
-                className="bg-orange-500 text-white px-6 py-2 rounded-md hover:bg-orange-600 transition"
+                className="w-full bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center"
               >
+                <Send className="w-5 h-5 mr-2" />
                 Send Message
-              </button>
+              </motion.button>
             </form>
+          </motion.div>
+
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div>
+              <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+              <p className="text-gray-600 mb-8">
+                Whether you're interested in joining our journey, collaborating on projects, or just want to say hello, we're here to connect.
+              </p>
+            </div>
+
+            <div className="grid gap-6">
+              {contactInfo.map((item) => (
+                <motion.div
+                  key={item.title}
+                  whileHover={{ scale: 1.02 }}
+                  className="flex items-start p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors duration-300"
+                >
+                  <item.icon className="w-6 h-6 text-orange-500 mt-1" />
+                  <div className="ml-4">
+                    <h3 className="font-bold text-gray-900">{item.title}</h3>
+                    {item.link ? (
+                      <a
+                        href={item.link}
+                        className="text-orange-500 hover:text-orange-600 transition-colors duration-300"
+                      >
+                        {item.details}
+                      </a>
+                    ) : (
+                      <p className="text-gray-600">{item.details}</p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="font-bold text-lg mb-4">Follow Our Journey</h3>
+              <p className="text-gray-600 mb-6">
+                Connect with us on social media to stay updated on our latest adventures and impact initiatives.
+              </p>
+              <SocialLinks />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="bg-gray-50 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-4">Current Location</h2>
+            <p className="text-xl text-gray-600">
+              Follow our journey across Africa
+            </p>
+          </motion.div>
+
+          <div className="aspect-w-16 aspect-h-9">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7544764.854141616!2d11.527116799999999!3d-22.95915545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1bf53c7e6ed37521%3A0xd3b9e5a5a8ecb261!2sNamibia!5e0!3m2!1sen!2sus!4v1635959562000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Current Location Map"
+              className="rounded-lg shadow-lg"
+            ></iframe>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,43 +1,71 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Instagram, Twitter, Mail } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <h4 className="text-lg font-bold mb-4">About Us</h4>
-            <p className="text-gray-400">
-              A family of six dedicated to African travel, education, and impact.
+          <div className="col-span-2">
+            <h3 className="text-2xl font-bold mb-4">Wanderlust Africa</h3>
+            <p className="text-gray-400 max-w-md">
+              Join our family's journey across Africa as we explore, learn, and make a difference.
             </p>
           </div>
           <div>
-            <h4 className="text-lg font-bold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link to="/destinations" className="text-gray-400 hover:text-white">Destinations</Link></li>
-              <li><Link to="/education" className="text-gray-400 hover:text-white">Education</Link></li>
-              <li><Link to="/impact" className="text-gray-400 hover:text-white">Impact</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-white">Contact</Link></li>
+              <li>
+                <a href="/about" className="text-gray-400 hover:text-white transition">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="/destinations" className="text-gray-400 hover:text-white transition">
+                  Destinations
+                </a>
+              </li>
+              <li>
+                <a href="/impact" className="text-gray-400 hover:text-white transition">
+                  Our Impact
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-gray-400 hover:text-white transition">
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-bold mb-4">Projects</h4>
-            <ul className="space-y-2">
-              <li><a href="https://livelovelegacy.life/troubled-heart" className="text-gray-400 hover:text-white">Troubled Heart</a></li>
-              <li><a href="https://namibiachildrenshearttrust.com/" className="text-gray-400 hover:text-white">Children's Heart Trust</a></li>
-              <li><a href="https://rotaryclubharare.org/" className="text-gray-400 hover:text-white">Rotary Club Harare</a></li>
-            </ul>
+            <h4 className="text-lg font-semibold mb-4">Connect</h4>
+            <div className="flex space-x-4">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition"
+              >
+                <Instagram className="h-6 w-6" />
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white transition"
+              >
+                <Twitter className="h-6 w-6" />
+              </a>
+              <a
+                href="mailto:hello@wanderlustafrica.com"
+                className="text-gray-400 hover:text-white transition"
+              >
+                <Mail className="h-6 w-6" />
+              </a>
+            </div>
           </div>
-          <div>
-            <h4 className="text-lg font-bold mb-4">Connect</h4>
-            <p className="text-gray-400 mb-4">
-              Join our newsletter for updates on our journey and impact.
-            </p>
-            <button className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">
-              Subscribe
-            </button>
-          </div>
+        </div>
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <p>&copy; {new Date().getFullYear()} Wanderlust Africa. All rights reserved.</p>
         </div>
       </div>
     </footer>

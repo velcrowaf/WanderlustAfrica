@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react'; // Icons for the hamburger menu
 import { Footer } from './components/Footer';
+import { Logo } from './components/Logo';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
@@ -11,98 +12,102 @@ import { Impact } from './pages/Impact';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About' },
+    { to: '/destinations', label: 'Destinations' },
+    { to: '/education', label: 'Education' },
+    { to: '/impact', label: 'Impact' },
+    { to: '/contact', label: 'Contact' },
+  ];
+
   return (
-    <nav className="bg-orange-500 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* Logo */}
-        <div className="text-2xl font-bold">
-          <Link to="/">Wanderlust Africa</Link>
-        </div>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      scrolled ? 'bg-white shadow-lg' : 'bg-black/60 backdrop-blur-sm'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link to="/" className="py-2">
+            <Logo isSmall={false} className={scrolled ? '' : 'text-white'} />
+          </Link>
 
-        {/* Hamburger Menu Button (Visible on Mobile) */}
-        <button
-          className="sm:hidden block focus:outline-none"
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-        >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`transition-colors duration-300 relative group ${
+                  scrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-200'
+                } ${location.pathname === link.to ? 'font-semibold' : ''}`}
+              >
+                {link.label}
+                <span 
+                  className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    location.pathname === link.to ? 'w-full' : 'w-0'
+                  } ${scrolled ? 'bg-orange-500' : 'bg-white'}`}
+                />
+              </Link>
+            ))}
+          </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden sm:flex space-x-6">
-          <Link to="/" className="hover:underline">
-            Home
-          </Link>
-          <Link to="/about" className="hover:underline">
-            About
-          </Link>
-          <Link to="/destinations" className="hover:underline">
-            Destinations
-          </Link>
-          <Link to="/education" className="hover:underline">
-            Education
-          </Link>
-          <Link to="/impact" className="hover:underline">
-            Impact
-          </Link>
-          <Link to="/contact" className="hover:underline">
-            Contact
-          </Link>
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden focus:outline-none"
+            onClick={toggleMenu}
+            aria-label="Toggle Menu"
+          >
+            {isMenuOpen ? (
+              <X className={`h-6 w-6 transition-colors duration-300 ${
+                scrolled ? 'text-gray-700' : 'text-white'
+              }`} />
+            ) : (
+              <Menu className={`h-6 w-6 transition-colors duration-300 ${
+                scrolled ? 'text-gray-700' : 'text-white'
+              }`} />
+            )}
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu (Visible when isMenuOpen is true) */}
-      {isMenuOpen && (
-        <div className="sm:hidden bg-orange-600">
-          <Link
-            to="/"
-            className="block px-4 py-2 hover:bg-orange-700"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className="block px-4 py-2 hover:bg-orange-700"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            About
-          </Link>
-          <Link
-            to="/destinations"
-            className="block px-4 py-2 hover:bg-orange-700"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Destinations
-          </Link>
-          <Link
-            to="/education"
-            className="block px-4 py-2 hover:bg-orange-700"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Education
-          </Link>
-          <Link
-            to="/impact"
-            className="block px-4 py-2 hover:bg-orange-700"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Impact
-          </Link>
-          <Link
-            to="/contact"
-            className="block px-4 py-2 hover:bg-orange-700"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Contact
-          </Link>
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+        }`}
+      >
+        <div className="bg-white/95 backdrop-blur-sm shadow-lg">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200 ${
+                location.pathname === link.to ? 'bg-orange-50 text-orange-500 font-semibold' : ''
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 }
@@ -111,14 +116,16 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/destinations" element={<Destinations />} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/impact" element={<Impact />} />
-      </Routes>
+      <main className="pt-20">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/impact" element={<Impact />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );
