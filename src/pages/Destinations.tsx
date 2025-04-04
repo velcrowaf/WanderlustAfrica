@@ -4,21 +4,21 @@ import { MapPin, Calendar, Users, Camera } from 'lucide-react';
 export function Destinations() {
   const destinations = [
     {
-      title: "Serengeti National Park",
+      title: "Tanzania",
       location: "Tanzania",
       description: "Experience the great migration and abundant wildlife.",
       image: "https://images.unsplash.com/photo-1506710507565-203b9f24669b?q=80&w=2091&auto=format&fit=crop",
       activities: ["Safari Tours", "Hot Air Balloon", "Photography"]
     },
     {
-      title: "Victoria Falls",
+      title: "Zimbabwe",
       location: "Zimbabwe/Zambia",
       description: "Witness the world's largest waterfall and adventure activities.",
       image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80",
       activities: ["White Water Rafting", "Bungee Jumping", "Helicopter Tours"]
     },
     {
-      title: "Sahara Desert",
+      title: "Morocco",
       location: "Morocco",
       description: "Journey through golden dunes and Berber villages.",
       image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80",
