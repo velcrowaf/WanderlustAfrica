@@ -19,7 +19,7 @@ export function Logo({ className = '', isSmall = false }: LogoProps) {
       </div>
       {!isSmall && (
         <span className="text-2xl font-bold tracking-tight transition-colors duration-300">
-          Wanderlust Africa
+          Wanderlust African Family
         </span>
       )}
     </div>

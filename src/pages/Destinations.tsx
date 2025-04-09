@@ -7,7 +7,7 @@ export function Destinations() {
       title: "Tanzania",
       location: "Tanzania",
       description: "Experience the great migration and abundant wildlife.",
-      image: "https://images.unsplash.com/photo-1506710507565-203b9f24669b?q=80&w=2091&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1532017201189-87395e311df4?auto=format&fit=crop&q=80",
       activities: ["Safari Tours", "Hot Air Balloon", "Photography"]
     },
     {
@@ -21,7 +21,7 @@ export function Destinations() {
       title: "Morocco",
       location: "Morocco",
       description: "Journey through golden dunes and Berber villages.",
-      image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1489493887464-892be6d1daae?auto=format&fit=crop&q=80",
       activities: ["Camel Trek", "Desert Camping", "Star Gazing"]
     }
   ];
@@ -56,7 +56,7 @@ export function Destinations() {
         <div className="absolute inset-0">
           <img
             className="w-full h-full object-cover"
-            src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&q=80"
             alt="African Safari"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50"></div>
@@ -68,7 +68,7 @@ export function Destinations() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Explore Africa</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Wanderlust African Family</h1>
               <p className="text-xl text-gray-200 max-w-2xl">
                 Discover breathtaking landscapes, vibrant cultures, and unforgettable adventures across the continent.
               </p>
@@ -122,7 +122,7 @@ export function Destinations() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4">Featured Destinations</h2>
+            <h2 className="text-3xl font-bold mb-4">Our African Adventures</h2>
             <p className="text-xl text-gray-600">
               Each destination carefully selected to provide unique and authentic experiences.
             </p>

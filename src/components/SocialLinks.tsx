@@ -17,7 +17,7 @@ export function SocialLinks({ className = '', iconClassName = 'h-6 w-6' }: Socia
     },
     {
       name: 'Instagram',
-      href: 'https://instagram.com/wanderlustafrica',
+      href: 'https://instagram.com/wanderlust_african_family',
       icon: Instagram,
       color: 'hover:text-pink-600'
     },
