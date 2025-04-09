@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { BookOpen, GraduationCap, Globe2, Users, Brain, Lightbulb } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function Education() {
   const programs = [
@@ -141,14 +142,17 @@ export function Education() {
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Join us in creating a unique educational experience that will shape your children's future.
             </p>
-            <motion.a
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/contact"
-              className="inline-block bg-white text-orange-500 px-8 py-4 rounded-full hover:bg-orange-50 transition-colors duration-300"
             >
-              Start Your Journey
-            </motion.a>
+              <Link
+                to="/contact"
+                className="inline-block bg-white text-orange-500 px-8 py-4 rounded-full hover:bg-orange-50 transition-colors duration-300"
+              >
+                Start Your Journey
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>

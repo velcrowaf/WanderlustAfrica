@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Heart, School, TreePine, Users, Handshake, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function Impact() {
   const initiatives = [
@@ -210,14 +211,17 @@ export function Impact() {
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Together, we can create lasting positive change in communities across Africa.
             </p>
-            <motion.a
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/contact"
-              className="inline-block bg-white text-orange-500 px-8 py-4 rounded-full hover:bg-orange-50 transition-colors duration-300"
             >
-              Get Involved
-            </motion.a>
+              <Link
+                to="/contact"
+                className="inline-block bg-white text-orange-500 px-8 py-4 rounded-full hover:bg-orange-50 transition-colors duration-300"
+              >
+                Get Involved
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
