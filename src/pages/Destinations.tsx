@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Users, Camera } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function Destinations() {
   const destinations = [
@@ -178,14 +179,17 @@ export function Destinations() {
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Let us help you plan the perfect journey through Africa's most incredible destinations.
             </p>
-            <motion.a
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/contact"
-              className="inline-block bg-white text-orange-500 px-8 py-4 rounded-full hover:bg-orange-50 transition-colors duration-300"
             >
-              Plan Your Trip
-            </motion.a>
+              <Link
+                to="/contact"
+                className="inline-block bg-white text-orange-500 px-8 py-4 rounded-full hover:bg-orange-50 transition-colors duration-300"
+              >
+                Plan Your Trip
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
