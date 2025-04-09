@@ -1,4 +1,5 @@
 import { Instagram, Twitter, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
   return (
@@ -15,24 +16,24 @@ export function Footer() {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/about" className="text-gray-400 hover:text-white transition">
+                <Link to="/about" className="text-gray-400 hover:text-white transition">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/destinations" className="text-gray-400 hover:text-white transition">
+                <Link to="/destinations" className="text-gray-400 hover:text-white transition">
                   Destinations
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/impact" className="text-gray-400 hover:text-white transition">
+                <Link to="/impact" className="text-gray-400 hover:text-white transition">
                   Our Impact
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="text-gray-400 hover:text-white transition">
+                <Link to="/contact" className="text-gray-400 hover:text-white transition">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -40,7 +41,7 @@ export function Footer() {
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/wanderlust_african_family"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition"
