@@ -1,0 +1,16 @@
+backend:
+  name: git
+  repo: velcrowaf/WanderlustAfrica # Replace with your GitHub repository
+  branch: main # Replace with your default branch
+
+media_folder: "public/images/uploads" # Where uploaded images are stored
+public_folder: "/images/uploads" # Public URL for uploaded images
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "src/pages"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
