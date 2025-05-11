@@ -35,8 +35,7 @@ export function Navigation() {
     { to: '/destinations', label: 'Destinations' },
     { to: '/education', label: 'Education' },
     { to: '/impact', label: 'Impact' },
-    { to: '/contact', label: 'Contact' },
-    { to: 'http://localhost:1337/admin', label: 'Admin', external: true }
+    { to: '/contact', label: 'Contact' }
   ];
 
   return (
