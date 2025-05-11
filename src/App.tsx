@@ -52,34 +52,20 @@ export function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              link.external ? (
-                <a
-                  key={link.to}
-                  href={link.to}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`transition-colors duration-300 relative group ${
-                    scrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-200'
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`transition-colors duration-300 relative group ${
-                    scrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-200'
-                  } ${location.pathname === link.to ? 'font-semibold' : ''}`}
-                >
-                  {link.label}
-                  <span 
-                    className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                      location.pathname === link.to ? 'w-full' : 'w-0'
-                    } ${scrolled ? 'bg-orange-500' : 'bg-white'}`}
-                  />
-                </Link>
-              )
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`transition-colors duration-300 relative group ${
+                  scrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-200'
+                } ${location.pathname === link.to ? 'font-semibold' : ''}`}
+              >
+                {link.label}
+                <span 
+                  className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                    location.pathname === link.to ? 'w-full' : 'w-0'
+                  } ${scrolled ? 'bg-orange-500' : 'bg-white'}`}
+                />
+              </Link>
             ))}
           </div>
 
@@ -110,29 +96,16 @@ export function Navigation() {
       >
         <div className="bg-white/95 backdrop-blur-sm shadow-lg">
           {navLinks.map((link) => (
-            link.external ? (
-              <a
-                key={link.to}
-                href={link.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200 ${
-                  location.pathname === link.to ? 'bg-orange-50 text-orange-500 font-semibold' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            )
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200 ${
+                location.pathname === link.to ? 'bg-orange-50 text-orange-500 font-semibold' : ''
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
           ))}
         </div>
       </div>
