@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react'; // Icons for the hamburger menu
+import { Menu, X } from 'lucide-react';
 import { Footer } from './components/Footer';
 import { Logo } from './components/Logo';
 import { Home } from './pages/Home';
@@ -9,6 +9,7 @@ import { Contact } from './pages/Contact';
 import { Destinations } from './pages/Destinations';
 import { Education } from './pages/Education';
 import { Impact } from './pages/Impact';
+import { VisualEditing } from './components/VisualEditor';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,6 +36,7 @@ export function Navigation() {
     { to: '/education', label: 'Education' },
     { to: '/impact', label: 'Impact' },
     { to: '/contact', label: 'Contact' },
+    { to: 'http://localhost:1337/admin', label: 'Admin', external: true }
   ];
 
   return (
@@ -51,20 +53,34 @@ export function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`transition-colors duration-300 relative group ${
-                  scrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-200'
-                } ${location.pathname === link.to ? 'font-semibold' : ''}`}
-              >
-                {link.label}
-                <span 
-                  className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                    location.pathname === link.to ? 'w-full' : 'w-0'
-                  } ${scrolled ? 'bg-orange-500' : 'bg-white'}`}
-                />
-              </Link>
+              link.external ? (
+                <a
+                  key={link.to}
+                  href={link.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`transition-colors duration-300 relative group ${
+                    scrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-200'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`transition-colors duration-300 relative group ${
+                    scrolled ? 'text-gray-700 hover:text-orange-500' : 'text-white hover:text-orange-200'
+                  } ${location.pathname === link.to ? 'font-semibold' : ''}`}
+                >
+                  {link.label}
+                  <span 
+                    className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                      location.pathname === link.to ? 'w-full' : 'w-0'
+                    } ${scrolled ? 'bg-orange-500' : 'bg-white'}`}
+                  />
+                </Link>
+              )
             ))}
           </div>
 
@@ -95,16 +111,29 @@ export function Navigation() {
       >
         <div className="bg-white/95 backdrop-blur-sm shadow-lg">
           {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200 ${
-                location.pathname === link.to ? 'bg-orange-50 text-orange-500 font-semibold' : ''
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
+            link.external ? (
+              <a
+                key={link.to}
+                href={link.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors duration-200 ${
+                  location.pathname === link.to ? 'bg-orange-50 text-orange-500 font-semibold' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            )
           ))}
         </div>
       </div>
@@ -127,8 +156,9 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <VisualEditing />
     </div>
   );
 }
 
-export default App
+export default App;

@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
+  "type": "module",
   "license": "UNLICENSED",
   "scripts": {
     "dev": "sanity dev",
@@ -15,6 +16,7 @@
     "sanity"
   ],
   "dependencies": {
+    "@sanity/presentation": "^2.0.0",
     "@sanity/vision": "^3.86.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -22,10 +24,15 @@
     "styled-components": "^6.1.15"
   },
   "devDependencies": {
+    "@sanity/cli": "^3.86.1",
     "@sanity/eslint-config-studio": "^5.0.2",
+    "@tailwindcss/postcss7-compat": "^2.2.17",
     "@types/react": "^18.0.25",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.9.0",
+    "postcss": "^8.5.3",
     "prettier": "^3.0.2",
+    "tailwindcss": "^4.1.4",
     "typescript": "^5.1.6"
   },
   "prettier": {
