@@ -11,5 +11,5 @@ services:
         value: 18.18.0
       - key: NODE_ENV
         value: production
-    installCommand: npm install --include=dev
+    installCommand: npm install
     rootDir: .  # Adjust if your project is in a subdirectory
