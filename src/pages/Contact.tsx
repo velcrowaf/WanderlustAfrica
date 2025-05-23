@@ -11,21 +11,21 @@ export function Contact() {
     {
       icon: Mail,
       title: "Email",
-      details: "hello@wanderlustafrica.com",
-      link: "mailto:hello@wanderlustafrica.com"
+      details: "info@wanderlustafricanfamily.com",
+      link: "mailto:info@wanderlustafricanfamily.com"
     },
     {
       icon: Phone,
       title: "Phone",
-      details: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      details: "+(263) 71 621 1569",
+      link: "tel:+263 71 621 1569"
     },
-    {
-      icon: MapPin,
-      title: "Location",
-      details: "Currently: Namibia",
-      link: null
-    },
+    // {
+    //   icon: MapPin,
+    //   title: "Location",
+    //   details: "Currently: Namibia",
+    //   link: null
+    // },
     {
       icon: Clock,
       title: "Response Time",
