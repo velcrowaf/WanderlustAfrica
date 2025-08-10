@@ -2,6 +2,9 @@
 
 A modern travel and education website showcasing the extraordinary journey of a family of six across Africa. Experience African destinations, educational content, and impactful community stories through immersive digital storytelling.
 
+<img width="1188" height="837" alt="Screenshot 2025-08-10 at 15 16 40" src="https://github.com/user-attachments/assets/be646c14-9846-4b57-b921-4d4666cd4a99" />
+
+
 ## 🚀 Overview
 
 WanderlustAfrica is a comprehensive travel platform that combines:
