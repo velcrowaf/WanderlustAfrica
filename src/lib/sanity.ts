@@ -1,9 +1,10 @@
 import { createClient } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
+import { env, isDevelopment } from './env'
 
-const projectId = 'a4oqu4lc'
-const dataset = 'production'
-const apiVersion = '2024-04-23'
+const projectId = env.VITE_SANITY_PROJECT_ID
+const dataset = env.VITE_SANITY_DATASET
+const apiVersion = env.VITE_SANITY_API_VERSION
 
 export const client = createClient({
   projectId,
@@ -12,14 +13,14 @@ export const client = createClient({
   useCdn: false,
   perspective: 'published',
   stega: {
-    enabled: process.env.NODE_ENV === 'development',
+    enabled: isDevelopment,
     studioUrl: '/studio',
   },
 })
 
 const builder = imageUrlBuilder(client)
 
-export const urlFor = (source: any) => {
+export const urlFor = (source: unknown) => {
   return builder.image(source)
 }
 
@@ -31,6 +32,6 @@ export const getPreviewClient = () => {
     apiVersion,
     useCdn: false,
     perspective: 'previewDrafts',
-    token: process.env.SANITY_API_READ_TOKEN,
+    token: env.VITE_SANITY_TOKEN,
   })
 }

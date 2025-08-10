@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import ErrorBoundary from './components/ErrorBoundary';
 import { Footer } from './components/Footer';
 import { Logo } from './components/Logo';
 import { Home } from './pages/Home';
@@ -115,21 +116,23 @@ export function Navigation() {
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
-      <main className="pt-20">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/destinations" element={<Destinations />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/impact" element={<Impact />} />
-        </Routes>
-      </main>
-      <Footer />
-      <VisualEditing />
-    </div>
+    <ErrorBoundary>
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <main className="pt-20">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/destinations" element={<Destinations />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/impact" element={<Impact />} />
+          </Routes>
+        </main>
+        <Footer />
+        <VisualEditing />
+      </div>
+    </ErrorBoundary>
   );
 }
 

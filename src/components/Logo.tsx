@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+// Removed unused imports: motion and Link
 
 interface LogoProps {
   className?: string;
