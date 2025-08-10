@@ -187,6 +187,28 @@ npm run deploy       # Deploy Sanity Studio
 - **Error Handling**: Graceful error boundaries
 - **Social Integration**: YouTube feeds and social media links
 
+## 📝 Content Management
+
+WanderlustAfrica uses **Sanity CMS** for content management. Content creators can manage destinations, pages, and media through an intuitive interface.
+
+### Quick Access
+- **Sanity Studio** (Development): `http://localhost:3333` (after running `npm run dev` in `/sanity` directory)
+- **Complete User Guide**: [Sanity CMS User Guide](./SANITY_CMS_GUIDE.md)
+
+### Content Types
+- **🌍 Destinations**: African travel locations with images, descriptions, and activities
+- **📄 Pages**: General website content with rich text and embedded media
+
+### For Content Creators
+See the detailed [**Sanity CMS User Guide**](./SANITY_CMS_GUIDE.md) for:
+- Step-by-step content creation tutorials
+- Image upload and management guidelines  
+- Publishing workflows
+- Best practices and troubleshooting
+
+### For Developers
+Content management setup is in the `/sanity` directory with full documentation in [sanity/README.md](./sanity/README.md).
+
 ## 🔧 Configuration
 
 ### Sanity CMS Setup
